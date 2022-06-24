@@ -4,9 +4,9 @@
 
 
  /* File created by MIDL compiler version 8.01.0622 */
-/* at Tue Jan 19 11:14:07 2038
+/* at Tue Jan 19 04:14:07 2038
  */
-/* Compiler settings for newfuzzing.idl:
+/* Compiler settings for magicNetdfs.idl:
     Oicf, W1, Zp8, env=Win64 (32b run), target_arch=AMD64 8.01.0622 
     protocol : all , ms_ext, c_ext, robust
     error checks: allocation ref bounds_check enum stub_data 
@@ -31,8 +31,8 @@
 #endif /* __RPCNDR_H_VERSION__ */
 
 
-#ifndef __newfuzzing_h_h__
-#define __newfuzzing_h_h__
+#ifndef __magicNetdfs_h_h__
+#define __magicNetdfs_h_h__
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
